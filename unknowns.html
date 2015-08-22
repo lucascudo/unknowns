@@ -1,0 +1,53 @@
+<head>
+  <title>Unknowns</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome aboard!</h1>
+      {{> unknownChangeName}}
+    </header>
+	<sidebar>
+	    {{> unknownsList }}
+  	</sidebar>
+  	<footer>
+  		Developed by <a href="http://lucas.redeaberta.com.br" target="_blank">Cascudo</a>
+  	</footer>
+  </div>
+</body>
+
+<template name="unknownChangeName">
+	<form class="update-unknown">
+		<input type="text" name="name" class="update-unknown-field" placeholder="Type your name here and press [enter]" size="40" />
+	</form>
+	<br/>
+	{{> moronsCounter}}
+</template>
+
+<template name="moronsCounter">
+	<button id="moronCatcher">Do not click</button>
+	<br/>
+	<p>
+		{{#if morons}}
+			{{morons.count}} {{morons.title}} was caught.
+		{{/if}}
+	</p>
+</template>
+
+<template name="unknownsList">
+	<p>
+		{{#if unknowns}}
+			{{unknowns.count}} registered {{unknowns.title}}
+		{{/if}}
+	</p>
+	<li>
+		<ul>
+			{{#each unknowns}}
+				<li>
+					<span class="identifier" hidden>{{_id}}</span> - {{name}} {{#if moron}} (moron) {{/if}}
+				</li>
+			{{/each}}
+		</ul>
+	</li>
+</template>
