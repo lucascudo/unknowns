@@ -1,0 +1,43 @@
+<head>
+  <title>Visitors</title>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1>Welcome aboard!</h1>
+    </header>
+	<section>
+	    {{> home }}
+  	</section>
+  	<footer>
+  		Developed by <a href="http://lucas.redeaberta.com.br" target="_blank">Cascudo</a>
+  	</footer>
+  </div>
+</body>
+
+<template name="home">
+	<p>{{morons.counter}} {{morons.title}} was caught.</p>
+	<form class="update-visitor">
+		<button id="moronCatcher">Do not click</button>
+		<br/>
+		<input type="text" name="name" class="update-visitor-field" placeholder="Type your name here" size="40" />
+	</form>
+	<br/>
+	<br/>
+	<li>
+		<ul>
+			{{#each visitors}}
+				{{> visitor}}
+			{{else}}
+				No visitors yet.
+			{{/each}}
+		</ul>
+	</li>
+</template>
+
+<template name="visitor">
+	<li>
+		<span class="id" hidden>{{_id}}</span> - {{name}} {{#if moron}}(moron){{/if}}
+	</li>
+</template>
