@@ -43,7 +43,7 @@ if (Meteor.isClient) {
   });
 
   Template.unknownChangeName.events({
-    "submit form.update-unknown": function(event) {
+    "keyup input#username": function(event) {
       // prevent default browser form submit
       event.preventDefault();
       // update unknown name
