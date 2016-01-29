@@ -50,7 +50,7 @@ if (Meteor.isClient) {
       var me = Session.get("Unknown");
       if (!Unknowns.findOne(me.id).moron) {
         Unknowns.update(me.id, { $set: {
-          "name": event.target.name.value,
+          "name": event.target.value,
           "updatedAt": new Date()
         }});
       }
